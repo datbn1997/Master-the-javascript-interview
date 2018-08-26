@@ -1,0 +1,1 @@
+# what-is-functional-programming-traslate-
