@@ -27,7 +27,18 @@ Nói cách khác, nếu bạn muốn biết functional programming là gì trong
 * gửi cùng 1 đầu vào và luôn luôn trả về 1 đầu ra.
 * không bị ảnh hưởng ở bên ngoài
 
-Pure functions có rất nhiều thuộc tính quan trọng trong functional programming, bao gồm **referential transparency**(bạn có thể thay thế 1 lời gọi hàm với kết quả trả về không làm thay đổi chương trình). Đọc \"What is a Pure Function?\" để biết chi tiết hơn 
+Pure functions có rất nhiều thuộc tính quan trọng trong functional programming, bao gồm **referential transparency**(bạn có thể thay thế 1 lời gọi hàm với kết quả trả về không làm thay đổi chương trình). Đọc [\"What is a Pure Function?\"](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976) để biết chi tiết hơn.
+
+**function composition** là một tiến trình kết hợp của 2 hay nhiều function để tạo ra một hàm tính toán mới. Ví dụ Thành phần `f . g` (dấu chấm nghĩa là "kết hợp với") nó tương đương với `f(g(x))` trong JavaScript. Sự hiểu biết về function composition rất quan trọng để tiến tới hiểu được một phần mềm được xây dựng và sử dụng functional programming thế nào. Đọc [\"What is Function Composition?\"](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0) để hiểu rõ hơn.
+
+### **Shared State**
+**Shared State** là tổng hợp rất nhiều biến, đối tượng hoặc bộ nhớ trống điều đó tồn tại trong phạm vi nào đó được chia sẻ, hay với thuộc tính của đối tượng nào đó được truyền vào trong phạm vi. Phạm vi chia sẻ bao gồm phạm vi toàn cục, pham vi cục bộ. Thông thường trong lập trình hướng đối tượng, các đối tượng được chia sẻ trong phạm vi bằng cách thêm các thuộc tính vào đối tượng khác.
+
+Ví dụ, Một trò chơi máy tính phải có đối tượng chính trong game, với nhân vật và các items trong game lưu trữ các thuộc tính của họ bởi chính đối tượng đó. Functional programming tránh shared state-thay vì dựa vào cấu trúc dữ liệu không thay đổi, các phép tính thuần túy để lấy được dữ liệu mới từ các dữ liệu có sẵn. Để chi tiết hơn về cách mà các phần mềm hướng chức năng có thể xử lý trạng thái của ứng dụng bạn xem [\"10 tips for better Relux Architeture?\"](https://medium.com/javascript-scene/10-tips-for-better-redux-architecture-69250425af44)
+
+Vấn đề của shared state chính là bạn phải hiểu được những ảnh hưởng của hàm,bạn phải biết lịch sử toàn thể của các biến mà bạn đã chia sẻ khi sử dụng hàm hoặc những ảnh hưởng mà nó gây ra.
+
+Tưởng tượng bạn có một đối tượng user và bạn cần save. Hàm `saveUser()` sẽ tạo một request tới API trên server. Trong khi nó đang thực hiện, người dùng thay đổi thông tin ảnh cá nhân với `updateAvatar()` và gây ra bởi một request `saveUser()` khác.   
 
 
 
