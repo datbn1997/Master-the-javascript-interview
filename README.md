@@ -38,7 +38,17 @@ Ví dụ, Một trò chơi máy tính phải có đối tượng chính trong ga
 
 Vấn đề của shared state chính là bạn phải hiểu được những ảnh hưởng của hàm,bạn phải biết lịch sử toàn thể của các biến mà bạn đã chia sẻ khi sử dụng hàm hoặc những ảnh hưởng mà nó gây ra.
 
-Tưởng tượng bạn có một đối tượng user và bạn cần save. Hàm `saveUser()` sẽ tạo một request tới API trên server. Trong khi nó đang thực hiện, người dùng thay đổi thông tin ảnh cá nhân với `updateAvatar()` và gây ra bởi một request `saveUser()` khác.   
+Tưởng tượng bạn có một đối tượng user và bạn cần save. Hàm `saveUser()` sẽ tạo một request tới API trên server. Trong khi nó đang thực hiện, người dùng thay đổi thông tin ảnh cá nhân với `updateAvatar()` và gây ra bởi một request `saveUser()` khác. Khi được lưu, Server sẽ trả về đối tượng người dùng mà nên thay thế bất cứ thứ gì trong bộ nhớ để có thể đồng bộ với những gì xảy ra trên server hoặc những reponse của những lời gọi API khác.
+
+Thật không may, reponse thứ 2 đã được nhận trước reponse đầu tiên, vậy khi trong lần reponse thứ 1(đã bị lỗi thời) trả về, ảnh mới trong profile đã bị xóa trong bộ nhớ và đã bị thay thế bởi 1 số cũ. Đây là ví dụ chạy điều kiện-1 lỗi phổ biến liên quan đến shared state
+
+Những lỗi phổ biến với shared state đó là thay đổi trật tự của các hàm được gọi có thể gây ra thất bại liên tiếp bởi vì những hàm nào có những hành động shared state đều trong phụ thuộc vào thời gian.
+
+Khi bạn tránh shared state, thời gian và trật tự của hàm gọi sẽ không bị thay đổi kết quả của việc gọi hàm. Với pure function, gửi cùng 1 đầu vào, bạn sẽ luôn nhần cùng 1 đầu ra. Điều này làm cho các lời gọi hàm hoàn toàn độc lập với các lời gọi hàm khác, hoàn toàn có thể đơn giản thay đổi và tái cấu trúc. Sự thay đổi trong 1 hàm, hoặc thời gian của lời gọi hàm không ảnh hướng và phá vỡ các phần của chương trình.
+
+
+
+
 
 
 
