@@ -1,5 +1,5 @@
 [nguồn](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
-# Cuộc phỏng vấn Master The JavaScript: functional programming là gì ?
+# Master The JavaScript Interview: functional programming là gì ?
 > *"Cuộc phỏng vấn Master The JavaScript" là 1 series của những bài viết được viết ra để chuẩn bị cho những câu hỏi thường gặp, rất có thể họ sẽ gặp khi ứng tuyển vào vị trí từ level trung bình đến senior của JavaScript. Những câu hỏi mà tôi thường xuyên sử dụng trong một cuộc phỏng vấn*.
 
 **Functional programming** đã trở thành 1 chủ đề hot của JavaScript trên toàn thế giới. Trong 1 vài năm trước, một số lập trình viên JavaScript cũng đã biết được functional programming là gì. Nhưng mỗi ứng dụng có codebase lớn mà tôi đã gặp trong suốt 3 năm nó sẽ nặng nề khi bạn sử dụng functional programming.
