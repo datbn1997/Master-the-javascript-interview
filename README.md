@@ -46,6 +46,17 @@ Những lỗi phổ biến với shared state đó là thay đổi trật tự c
 
 Khi bạn tránh shared state, thời gian và trật tự của hàm gọi sẽ không bị thay đổi kết quả của việc gọi hàm. Với pure function, gửi cùng 1 đầu vào, bạn sẽ luôn nhần cùng 1 đầu ra. Điều này làm cho các lời gọi hàm hoàn toàn độc lập với các lời gọi hàm khác, hoàn toàn có thể đơn giản thay đổi và tái cấu trúc. Sự thay đổi trong 1 hàm, hoặc thời gian của lời gọi hàm không ảnh hướng và phá vỡ các phần của chương trình.
 
+Trong ví dụ trên, chúng tôi sử dụng `object.assign()` và truyền trong 1 đối tượng rỗng như là 1 tham số đầu tiên để sao chép thuộc tính `x` thay vì biến đổi bên trong nó. Trong trường hợp này, nó tương đương với việc bạn tạo ra 1 đối tượng mới từ SCratch không có `object.assign()`. Nhưng đây là pattern phổ biến trong JavaScript để tạo bản sao trạng thại hiện tại thay vì sử dụng thay thế biến đổi, mà chúng tôi chứng minh ở ví dụ trên. 
+
+Nếu bạn để ý trong lệnh `consonle.log()` ở ví dụ này, bạn cần để ý 1 vài thứ được đề cập đến: function composition. Nhắc lại, function composition như là `f(g(x))`. Trong trường hợp này chúng ta sẽ thay thế `f()` và `g()` với `x1()` và `x2()` sẽ cho ra `x1 . x2 `.
+
+Dĩ nhiên, Nếu bạn muốn thay đổi thứ tự trong thành phần của nó đầu ra sẽ thay đổi. Thứ tự của phép tính vẫn là vấn đề. `f(g(x))` không phải luôn luôn bằng `g(f(x))`, nhưng vấn đề gì xảy ra ra nữa không, chuyển gì xảy ra ở các biến ở ngoài hàm - và đây là vấn đề lớn. Với các hàm impure. Nó không thể hiểu toàn bộ 1 hàm làm những gì trừ khi bạn biết toàn bộ lịch sử của toàn bộ biến mà hàm đã sử dụng và những ảnh hưởng của nó.
+
+Xóa hàm phụ thuộc vào thời gian. Và bạn loại trừ toàn thể lớp có tiềm năng chứ bug.
+
+## **Immutability**
+
+
 
 
 
